@@ -2,9 +2,9 @@
 
 **About**
 
-This module refines network modules from a protein protein interaction network. Large modules obtained by a modularity optimization algorithm like 
+    This module refines network modules from a protein protein interaction network. Large modules obtained by a modularity optimization algorithm like 
 Louvain [1] or Clauset-Newman-Moore Greedy maximization algorithm [2] can be further remodularized and refined using our algorithm. 
-The algorithm works by relaxing the maximal modularity values and mining submodules of larger modules in suboptimal zone of modularity. The observed modules are shown to be biologically more relevant.
+    The algorithm works by relaxing the maximal modularity values and mining submodules of larger modules in suboptimal zone of modularity. The observed modules are shown to be biologically more relevant.
 For details, see our publication *"Refining modules to determine functionally significant clusters in molecular networks. Rama Kaalia and Jagath C. Rajapakse. BMC Supplements"*
 
 **Usage**
@@ -15,7 +15,8 @@ Modularity optimization can be done using two algotihms:
     method: louvain for Louvian Modularity optimization
 Input: Following files are needed
     edgelist: Tab spearated file of interactions between proteins or genes
-Output: original and refined node membership files, community size files, modularity values and refined modules for different iterations
+Output: 
+    original and refined node membership files, community size files, modularity values and refined modules for different iterations
 
 
 >import networkx as nx
@@ -24,23 +25,23 @@ Output: original and refined node membership files, community size files, modula
 
 >from networkx.algorithms.community import greedy_modularity_communities
 
->#Read edgelist as a graph using networkx
+#Read edgelist as a graph using networkx
 
 >G = nx.read_edgelist("edgelist.tsv", delimiter='\t', nodetype=str)
 
-method="louvain"
+>method="louvain"
 
-iterations=np.array(list(range(1,6)))
+>iterations=np.array(list(range(1,6)))
 
-resolution=np.arange(1,3,1)
+>resolution=np.arange(1,3,1)
 
 #note: Iterations should be outer loop and resolution should be inner loop
 
-for i in iterations:
+>for i in iterations:
 
-    for r in resolution:
+>    for r in resolution:
     
-        ref_main(G,method,it=i,g=r,writeorig=True)
+>        ref_main(G,method,it=i,g=r,writeorig=True)
 
 
 **Requirements**
