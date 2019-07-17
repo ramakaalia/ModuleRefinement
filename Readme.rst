@@ -64,7 +64,7 @@
     
  
  
- **Data:**
+**Data:**
  
  human_ppi :
     The interactions between proteins or genes are provided in a tab separated file. These interactions can be derived on the basis of gene expression, protein similarities, co-regulation or physical interactions between proteins. The edgelist for protein-protein interactions in human used for analysis published in publication is given in human_ppi. This file contains physical and functional interactions of human proteome collected from HPRD, STRING, BioGRID and IMEx consortium databases. It contains 78705 interactions in 12022 unique human proteins.
