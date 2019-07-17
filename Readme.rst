@@ -7,6 +7,7 @@ The algorithm works by relaxing the maximal modularity values and mining submodu
 For details, see our publication "Refining modules to determine functionally significant clusters in molecular networks. Rama Kaalia and Jagath C. Rajapakse. BMC Supplements"
 
 **Usage**
+
 ```
 #Modularity optimization can be done using two algotihms:
     #method: greedy for Clauset-Newman-Moore greedy modularity maximization
@@ -38,6 +39,7 @@ for i in iterations:
 stop= timeit.default_timer()
 print("runtime : "+str(stop-start))
 ```
+
 
 **References:**
 [1] Blondel, V. D., Guillaume, J.-L., Lambiotte, R. & Lefebvre, E. Fast unfolding of communities in large networks. J. Stat. Mech. theory Exp. 2008, P10008 (2008).
