@@ -14,10 +14,11 @@
         2: louvain for Louvian Modularity optimization
     Input: Following files are needed
         edgelist: Tab spearated file of interactions between proteins or genes
-    Output: Original and refined node membership files, community size files, modularity values and refined modules for different iterations
+    Output: 
+        Original and refined node membership files, community size files, modularity values and refined modules for different iterations
     Source code: refmod.py
 
-**Code Usage:**
+**Code Usage: Example one**
 
     import networkx as nx
 
@@ -30,7 +31,6 @@
     G = nx.read_edgelist("edgelist.tsv", delimiter='\t', nodetype=str)
 
     method="louvain"
-    #method="greedy"
 
     iterations=np.array(list(range(1,6)))
 
@@ -43,7 +43,26 @@
             for r in resolution:
     
                   ref_main(G,method,it=i,g=r,writeorig=True)
+                  
+                  
 
+**Code Usage: Example two**
+
+    import networkx as nx
+
+    import numpy as np
+
+    from networkx.algorithms.community import greedy_modularity_communities
+
+    #Read edgelist as a graph using networkx
+
+    G = nx.read_edgelist("edgelist.tsv", delimiter='\t', nodetype=str)
+
+    method="greedy"
+
+    ref_main(G,method,writeorig=True)
+    
+    
 
 **Requirements:**
 
