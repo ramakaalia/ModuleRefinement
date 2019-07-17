@@ -4,7 +4,7 @@
 
     This module refines network modules from a protein protein interaction network. Large modules obtained by a modularity optimization algorithm like Louvain [1] or Clauset-Newman-Moore Greedy maximization algorithm [2] can be further remodularized and refined using our algorithm. 
     The algorithm works by relaxing the maximal modularity values and mining submodules of larger modules in suboptimal zone of modularity. The observed modules are shown to be biologically more relevant.
-For details, see our publication *"Refining modules to determine functionally significant clusters in molecular networks. Rama Kaalia and Jagath C. Rajapakse. BMC Supplements"*
+    For details, see our publication *"Refining modules to determine functionally significant clusters in molecular networks. Rama Kaalia and Jagath C. Rajapakse. BMC Supplements"*
 
 **Usage**
 
@@ -17,7 +17,8 @@ Input: Following files are needed
 Output: 
     original and refined node membership files, community size files, modularity values and refined modules for different iterations
 
-Code:
+**Code:**
+
     >import networkx as nx
 
     >import numpy as np
@@ -46,11 +47,14 @@ Code:
 **Requirements**
 
 The following packages softwares are needed to run this algorithm successfully
-    [] Louvain Community Detection: The python implementation of Louvain algorithm [1] can be installed from pip using pip install python-louvain. For more details see https://github.com/taynaud/python-louvain .
-    [] Networkx
-    [] Python3
+    [1] Louvain Community Detection: The python implementation of Louvain algorithm [1] can be installed from pip using pip install python-louvain. For more details see https://github.com/taynaud/python-louvain .
+    
+    [2] Networkx
+    
+    [3] Python3
 
 **References:**
 
     [1] Blondel, V. D., Guillaume, J.-L., Lambiotte, R. & Lefebvre, E. Fast unfolding of communities in large networks. J. Stat. Mech. theory Exp. 2008, P10008 (2008).
+    
     [2] Clauset, A., Newman, M. E. J. & Moore, C. Finding community structure in very large networks. Phys. Rev. E 70, 66111 (2004).
