@@ -1,6 +1,7 @@
 **REFMOD**
 
 **About**
+
 This module refines network modules from a protein protein interaction network. Large modules obtained by a modularity optimization algorithm like 
 Louvain [1] or Clauset-Newman-Moore Greedy maximization algorithm [2] can be further remodularized and refined using our algorithm. 
 The algorithm works by relaxing the maximal modularity values and mining submodules of larger modules in suboptimal zone of modularity.
@@ -9,6 +10,7 @@ For details, see our publication "Refining modules to determine functionally sig
 **Usage**
 
 ```
+
 #Modularity optimization can be done using two algotihms:
     #method: greedy for Clauset-Newman-Moore greedy modularity maximization
     #method: louvain for Louvian Modularity optimization
@@ -38,9 +40,11 @@ for i in iterations:
 
 stop= timeit.default_timer()
 print("runtime : "+str(stop-start))
+
 ```
 
 
 **References:**
+
 [1] Blondel, V. D., Guillaume, J.-L., Lambiotte, R. & Lefebvre, E. Fast unfolding of communities in large networks. J. Stat. Mech. theory Exp. 2008, P10008 (2008).
 [2] Clauset, A., Newman, M. E. J. & Moore, C. Finding community structure in very large networks. Phys. Rev. E 70, 66111 (2004).
