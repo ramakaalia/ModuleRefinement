@@ -2,8 +2,7 @@
 
 **About**
 
-    This module refines network modules from a protein protein interaction network. Large modules obtained by a modularity optimization algorithm like 
-Louvain [1] or Clauset-Newman-Moore Greedy maximization algorithm [2] can be further remodularized and refined using our algorithm. 
+    This module refines network modules from a protein protein interaction network. Large modules obtained by a modularity optimization algorithm like Louvain [1] or Clauset-Newman-Moore Greedy maximization algorithm [2] can be further remodularized and refined using our algorithm. 
     The algorithm works by relaxing the maximal modularity values and mining submodules of larger modules in suboptimal zone of modularity. The observed modules are shown to be biologically more relevant.
 For details, see our publication *"Refining modules to determine functionally significant clusters in molecular networks. Rama Kaalia and Jagath C. Rajapakse. BMC Supplements"*
 
@@ -18,40 +17,40 @@ Input: Following files are needed
 Output: 
     original and refined node membership files, community size files, modularity values and refined modules for different iterations
 
+Code:
+    >import networkx as nx
 
->import networkx as nx
+    >import numpy as np
 
->import numpy as np
+    >from networkx.algorithms.community import greedy_modularity_communities
 
->from networkx.algorithms.community import greedy_modularity_communities
+    #Read edgelist as a graph using networkx
 
-#Read edgelist as a graph using networkx
+    >G = nx.read_edgelist("edgelist.tsv", delimiter='\t', nodetype=str)
 
->G = nx.read_edgelist("edgelist.tsv", delimiter='\t', nodetype=str)
+    >method="louvain"
 
->method="louvain"
+    >iterations=np.array(list(range(1,6)))
 
->iterations=np.array(list(range(1,6)))
+    >resolution=np.arange(1,3,1)
 
->resolution=np.arange(1,3,1)
+    #note: Iterations should be outer loop and resolution should be inner loop
 
-#note: Iterations should be outer loop and resolution should be inner loop
+    >for i in iterations:
 
->for i in iterations:
-
->    for r in resolution:
+    >    for r in resolution:
     
->        ref_main(G,method,it=i,g=r,writeorig=True)
+    >        ref_main(G,method,it=i,g=r,writeorig=True)
 
 
 **Requirements**
 
 The following packages softwares are needed to run this algorithm successfully
-[] Louvain Community Detection: The python implementation of Louvain algorithm [1] can be installed from pip using pip install python-louvain. For more details see https://github.com/taynaud/python-louvain .
-[] Networkx
-[] Python3
+    [] Louvain Community Detection: The python implementation of Louvain algorithm [1] can be installed from pip using pip install python-louvain. For more details see https://github.com/taynaud/python-louvain .
+    [] Networkx
+    [] Python3
 
 **References:**
 
-[1] Blondel, V. D., Guillaume, J.-L., Lambiotte, R. & Lefebvre, E. Fast unfolding of communities in large networks. J. Stat. Mech. theory Exp. 2008, P10008 (2008).
-[2] Clauset, A., Newman, M. E. J. & Moore, C. Finding community structure in very large networks. Phys. Rev. E 70, 66111 (2004).
+    [1] Blondel, V. D., Guillaume, J.-L., Lambiotte, R. & Lefebvre, E. Fast unfolding of communities in large networks. J. Stat. Mech. theory Exp. 2008, P10008 (2008).
+    [2] Clauset, A., Newman, M. E. J. & Moore, C. Finding community structure in very large networks. Phys. Rev. E 70, 66111 (2004).
