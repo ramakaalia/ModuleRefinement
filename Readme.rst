@@ -1,4 +1,4 @@
-**RefMod: ALgorithm for Refining Modules in biological networks**
+**RefMod: An Algorithm for Refining Modules in biological networks**
 
 **About:**
 
