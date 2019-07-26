@@ -103,21 +103,21 @@ The following packages softwares are needed to run this algorithm successfully
  
  Partition files used for comparing different algorithms in paper: *"Refining modules to determine functionally significant clusters in molecular networks. Rama Kaalia and Jagath C. Rajapakse. BMC Supplements"*
  
- louvain_membership: The best iteration partition (out of 25 iterations) from louvain community detection at resolution parameter 2 (out of 1 to 10).
+    louvain_membership: The best iteration partition (out of 25 iterations) from louvain community detection at resolution parameter 2 (out of 1 to 10).
  
- louvref_membership: The partition after refinement of the best iteration partition from louvain community detection at resolution parameter 2 (i.e. from louvain_membership).
+    louvref_membership: The partition after refinement of the best iteration partition from louvain community detection at resolution parameter 2 (i.e. from louvain_membership).
   
- greedy_membership: The best partition from greedy community detection.
+    greedy_membership: The best partition from greedy community detection.
  
- greedyref_membership: The partition after refinement of the best iteration partition from greedy community detection (i.e. from greedy_membership).
+    greedyref_membership: The partition after refinement of the best iteration partition from greedy community detection (i.e. from greedy_membership).
     
- asy_membership: The best partition from Asymptotic Surprise community detection.
+    asy_membership: The best partition from Asymptotic Surprise community detection.
       
- mcode_membership: The best partition from MCODE community detection.
+    mcode_membership: The best partition from MCODE community detection.
  
- dpclus_membership: The best partition from DPCLUS community detection.
+    dpclus_membership: The best partition from DPCLUS community detection.
  
- labelprop_membership: The best partition from Label Propagation community detection.
+    labelprop_membership: The best partition from Label Propagation community detection.
  
  
     
