@@ -74,14 +74,21 @@
     The input for the code is a tab separated edgelist. The output of the code is written in a refmod_output directory (Warning: Any existing files in this directory are rewritten at each run). If the option writeorig is set to True, the original partition are also written in output files orig_membership, orig_community and orig_modularity. Default is set to None. 
     
     Output files for original partitioning from Louvain or Greedy modularity maximization are:
-    orig_membership: tab separated file for nodes and their communities
-    orig_community: tab separated file for community and their size
-    orig_modularity: tab separated file for every partition.
+    
+        orig_membership: tab separated file for nodes and their communities
+    
+        orig_community: tab separated file for community and their size
+    
+        orig_modularity: tab separated file for every partition.
     
     Output files for refined modules are:
-    ref_membership: tab separated file for nodes and their final refined communities
-    ref_community: tab separated file for refined community and their sizes 
-    ref_modularity: tab separated file for modularities for refined communities at every remodularization step
+    
+        ref_membership: tab separated file for nodes and their final refined communities
+    
+        ref_community: tab separated file for refined community and their sizes 
+    
+        ref_modularity: tab separated file for modularities for refined communities at every remodularization step
+    
     ref_stats: refined and nonrefined modules at every remodularization step of the refinement algorithm
  
     
@@ -101,7 +108,8 @@ The following packages softwares are needed to run this algorithm successfully
  human_ppi :
     The interactions between proteins or genes are provided in a tab separated file. These interactions can be derived on the basis of gene expression, protein similarities, co-regulation or physical interactions between proteins. The edgelist for protein-protein interactions in human used for analysis published in publication is given in human_ppi. This file contains physical and functional interactions of human proteome collected from HPRD, STRING, BioGRID and IMEx consortium databases. It contains 78705 interactions in 12022 unique human proteins.
  
- Partition files used for comparing different algorithms in paper: *"Refining modules to determine functionally significant clusters in molecular networks. Rama Kaalia and Jagath C. Rajapakse. BMC Supplements"*
+ Result fils :
+    Partition files used for comparing different algorithms in paper: *"Refining modules to determine functionally significant clusters in molecular networks. Rama Kaalia and Jagath C. Rajapakse. BMC Supplements"*
  
     louvain_membership: The best iteration partition (out of 25 iterations) from louvain community detection at resolution parameter 2 (out of 1 to 10).
  
