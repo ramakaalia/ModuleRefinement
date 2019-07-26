@@ -6,6 +6,7 @@ Presently refmod offers refinement on modules observed through Lovain and Clause
 import networkx as nx
 import community
 import math
+import os
 from itertools import chain
 from networkx.algorithms.community import greedy_modularity_communities
 
@@ -267,9 +268,12 @@ def write_finalpartition(partition,i,r):
     ref_community: tab separated file for refined community and their sizes 
     
     """
-    
-    nodefile = "ref_membership"+"_"+str(it)+"_"+str(r)
-    comfile = "ref_community"+"_"+str(it)+"_"+str(r)
+    if i==1 and r==1:
+        nodefile="./refmod_output/ref_membership"
+        comfile="./refmod_output/ref_community"
+    else:
+        nodefile = "./refmod_output/ref_membership"+"_"+str(i)+"_"+str(r)
+        comfile = "./refmod_output/ref_community"+"_"+str(i)+"_"+str(r)
     nodefh = open(nodefile,"w")
     comfh = open(comfile,"w")
     comfh.write("communityid\tsize\n")
@@ -318,10 +322,14 @@ def write_originalpartition(modln,i,r):
         It reports iteration, resolution, modularity of partition, number of communities.
     """
     i_partition=modln[0]
-    memfile="orig_membership"+"_"+str(i)+"_"+str(r)
-    comfile="orig_community"+"_"+str(i)+"_"+str(r)
+    if i==1 and r==1:
+        memfile="./refmod_output/orig_membership"
+        comfile="./refmod_output/orig_community"
+    else:
+        memfile="./refmod_output/orig_membership"+"_"+str(i)+"_"+str(r)
+        comfile="./refmod_output/orig_community"+"_"+str(i)+"_"+str(r)
 
-    modfile=open("orig_modularity","a")
+    modfile=open("./refmod_output/orig_modularity","a")
     modfile.write("iteration"+"\t"+"resolution"+"\t"+"modularity"+"\t"+"communities"+"\n")
 
 
@@ -359,7 +367,7 @@ def write_originalpartition(modln,i,r):
     modfile.close()
         
 ##Main module
-def ref_main(g1,method,it=1,g=1.0,writeorig=None):
+def ref_main(g1,method,it=1,g=1.0,p=30.0,writeorig=False):
     """
     Modularize the network using a modularity based community detection method 
     and relax the modularity levels, remodularize & refine the observed modules to obtain smaller modules.
@@ -383,6 +391,9 @@ def ref_main(g1,method,it=1,g=1.0,writeorig=None):
         The resolution for greedy, r=1. 
         For louvain, resolution r can be set as any postive float value, default is set to 1.
         
+    p: float
+    The threshold modularity loss in percentage, default value is 30 for 30% loss
+        
     writeorig: True|False, optional
         If set to True, the original partition are also written in output files orig_membership, orig_community
         and orig_modularity. Default is set to None.
@@ -390,21 +401,32 @@ def ref_main(g1,method,it=1,g=1.0,writeorig=None):
 
     """
     #returns original louvain partition and modularity if writeorig=True
-    #p: threshold modularity loss in percentage, default 30%
-    p=30
+    
     #Final partition
     M_f=[]  #list of communities(frozenset)
 
     #get First Generation Modules
  
     #output files
-
-    ref_stats=open("ref_stats","a") #refined and nonrefined modules at every refinement step
+    #create output directory and delete existing files
+    if os.path.exists("./refmod_output"):       
+        flist = os.listdir("./refmod_output")
+        # Remove old output files if any
+        for filePath in flist:
+            try:
+                if os.path.exists(filePath):
+                    os.remove(filePath)
+            except:
+                print("Error while deleting old file : ", filePath)    
+    else:
+        os.mkdir("./refmod_output")
+                           
+    ref_stats=open("./refmod_output/ref_stats","a") #refined and nonrefined modules at every refinement step
     hdr="iteration="+str(it)+" resolution="+str(g)+"\n"
     ref_stats.write(hdr)
     ref_stats.write("original\tnon_refinable\tunrefined\tnew_refined\n")
     #modularities for refined communities at every refinement run for each iteration at resolution g
-    it_modfile=open("ref_modularity","a")
+    it_modfile=open("./refmod_output/ref_modularity","a")
     it_modfile.write(hdr)
     it_modfile.write("run\tmodularity\n")
 
@@ -436,4 +458,7 @@ def ref_main(g1,method,it=1,g=1.0,writeorig=None):
     it_modfile.close()
     if writeorig==True:
         write_originalpartition(modularization,it,g)
+
+
+
 
