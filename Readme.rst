@@ -17,18 +17,22 @@
     Output: 
         Original and refined node membership files, community size files, modularity values and refined modules for different iterations
     Source code: refmod.py
+        Download and save the code as refmod.py.
 
 **Code Usage: Example one**
 
-    import networkx as nx
 
+    import networkx as nx
+    
     import numpy as np
+    
+    import refmod
 
     from networkx.algorithms.community import greedy_modularity_communities
 
     #Read edgelist as a graph using networkx
 
-    G = nx.read_edgelist("edgelist.tsv", delimiter='\t', nodetype=str)
+    G = nx.read_edgelist("samplefile", delimiter='\t', nodetype=str)
 
     method="louvain"
 
@@ -51,6 +55,8 @@
     import networkx as nx
 
     import numpy as np
+    
+    import refmod
 
     from networkx.algorithms.community import greedy_modularity_communities
 
@@ -64,10 +70,19 @@
     
  
  
-**Data:**
+    The input for the code is a tab separated edgelist. The output of the code is written in a refmod_output directory (Warning: Any existing files in this directory are rewritten at each run). If the option writeorig is set to True, the original partition are also written in output files orig_membership, orig_community and orig_modularity. Default is set to None. 
+    
+    Output files for original partitioning from Louvain or Greedy modularity maximization are:
+    orig_membership: tab separated file for nodes and their communities
+    orig_community: tab separated file for community and their size
+    orig_modularity: tab separated file for every partition.
+    
+    Output files for refined modules are:
+    ref_membership: tab separated file for nodes and their final refined communities
+    ref_community: tab separated file for refined community and their sizes 
+    ref_modularity: tab separated file for modularities for refined communities at every remodularization step
+    ref_stats: refined and nonrefined modules at every remodularization step of the refinement algorithm
  
- human_ppi :
-    The interactions between proteins or genes are provided in a tab separated file. These interactions can be derived on the basis of gene expression, protein similarities, co-regulation or physical interactions between proteins. The edgelist for protein-protein interactions in human used for analysis published in publication is given in human_ppi. This file contains physical and functional interactions of human proteome collected from HPRD, STRING, BioGRID and IMEx consortium databases. It contains 78705 interactions in 12022 unique human proteins.
     
 
 **Requirements:**
@@ -79,6 +94,13 @@ The following packages softwares are needed to run this algorithm successfully
     
     [3] Python3
 
+
+**Data:**
+ 
+ human_ppi :
+    The interactions between proteins or genes are provided in a tab separated file. These interactions can be derived on the basis of gene expression, protein similarities, co-regulation or physical interactions between proteins. The edgelist for protein-protein interactions in human used for analysis published in publication is given in human_ppi. This file contains physical and functional interactions of human proteome collected from HPRD, STRING, BioGRID and IMEx consortium databases. It contains 78705 interactions in 12022 unique human proteins.
+    
+    
 **References:**
 
     [1] Blondel, V. D., Guillaume, J.-L., Lambiotte, R. & Lefebvre, E. Fast unfolding of communities in large networks. J. Stat. Mech. theory Exp. 2008, P10008 (2008).
