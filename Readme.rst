@@ -108,7 +108,7 @@ The following packages softwares are needed to run this algorithm successfully
  human_ppi :
     The interactions between proteins or genes are provided in a tab separated file. These interactions can be derived on the basis of gene expression, protein similarities, co-regulation or physical interactions between proteins. The edgelist for protein-protein interactions in human used for analysis published in publication is given in human_ppi. This file contains physical and functional interactions of human proteome collected from HPRD, STRING, BioGRID and IMEx consortium databases. It contains 78705 interactions in 12022 unique human proteins.
  
- Result fils :
+ Result files :
     Partition files used for comparing different algorithms in paper: *"Refining modules to determine functionally significant clusters in molecular networks. Rama Kaalia and Jagath C. Rajapakse. BMC Supplements"*
  
     louvain_membership: The best iteration partition (out of 25 iterations) from louvain community detection at resolution parameter 2 (out of 1 to 10).
