@@ -62,13 +62,14 @@
 
     #Read edgelist as a graph using networkx
 
-    G = nx.read_edgelist("edgelist.tsv", delimiter='\t', nodetype=str)
+    G = nx.read_edgelist("samplefile", delimiter='\t', nodetype=str)
 
     method="greedy"
 
     ref_main(G,method,writeorig=True)
     
  
+ **Note:**
  
     The input for the code is a tab separated edgelist. The output of the code is written in a refmod_output directory (Warning: Any existing files in this directory are rewritten at each run). If the option writeorig is set to True, the original partition are also written in output files orig_membership, orig_community and orig_modularity. Default is set to None. 
     
