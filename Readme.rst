@@ -10,8 +10,11 @@
 
 
     Modularity optimization can be done using two algorithms:
-        1: greedy for Clauset-Newman-Moore greedy modularity maximization
-        2: louvain for Louvian Modularity optimization
+    
+        1: Clauset-Newman-Moore greedy modularity maximization
+        
+        2: Louvian Modularity optimization
+        
     Input: Following files are needed
         edgelist: Tab spearated file of interactions between proteins or genes
     Output: 
@@ -27,8 +30,6 @@
     import numpy as np
     
     import refmod
-
-    from networkx.algorithms.community import greedy_modularity_communities
 
     #Read edgelist as a graph using networkx
 
@@ -53,12 +54,8 @@
 **Code Usage: Example two**
 
     import networkx as nx
-
-    import numpy as np
     
     import refmod
-
-    from networkx.algorithms.community import greedy_modularity_communities
 
     #Read edgelist as a graph using networkx
 
@@ -71,7 +68,7 @@
  
  **Note:**
  
-    The input for the code is a tab separated edgelist. The output of the code is written in a refmod_output directory (Warning: Any existing files in this directory are rewritten at each run). If the option writeorig is set to True, the original partition are also written in output files orig_membership, orig_community and orig_modularity. Default is set to None. 
+    The method can be 'greedy' for Clauset-Newman-Moore greedy modularity maximization or 'louvain' for Louvian Modularity optimization. Since Louvain has an stochastic element you can run our algorithm for different iterations of louvain and refine corresponding modularizations, as shown in Example one. The input for the code is a tab separated edgelist like 'samplefile'. The output of the code is written in a refmod_output directory (Warning: Any existing files in this directory are rewritten at each run). If the option writeorig is set to True, the original partition are also written in output files orig_membership, orig_community and orig_modularity. Default is set to None. 
     
     Output files for original partitioning from Louvain or Greedy modularity maximization are:
     
@@ -89,13 +86,14 @@
     
         ref_modularity: tab separated file for modularities for refined communities at every remodularization step
     
-    ref_stats: refined and nonrefined modules at every remodularization step of the refinement algorithm
+        ref_stats: refined and nonrefined modules at every remodularization step of the refinement algorithm
  
     
 
 **Requirements:**
 
-The following packages softwares are needed to run this algorithm successfully
+The following packages softwares are needed to run this algorithm successfully:
+
     [1] Louvain Community Detection: The python implementation of Louvain algorithm [1] can be installed from pip using pip install python-louvain. For more details see https://github.com/taynaud/python-louvain .
     
     [2] Networkx
