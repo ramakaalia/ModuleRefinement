@@ -137,3 +137,6 @@ The following packages softwares are needed to run this algorithm successfully:
 **Citation:**
 
 If you use this code, pease cite : Rama Kaalia and Jagath C. Rajapakse. Refining modules to determine functionally significant clusters in molecular networks.  BMC Bioinformatics
+
+
+            Copyright (C) 2019 by Rama Kaalia <ramakaalia@gmail.com>   All rights reserved.
