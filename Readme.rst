@@ -4,7 +4,7 @@
 
     This module refines network modules from a protein protein interaction network. Large modules obtained by a modularity optimization algorithm like Louvain [1] or Clauset-Newman-Moore Greedy maximization algorithm [2] can be further remodularized and refined using our algorithm. 
     The algorithm works by relaxing the maximal modularity values and mining submodules of larger modules in suboptimal zone of modularity. The observed modules are shown to be biologically more relevant.
-    For details, see our publication *"Refining modules to determine functionally significant clusters in molecular networks. Rama Kaalia and Jagath C. Rajapakse. BMC Supplements"*
+    For details, see our publication *"Refining modules to determine functionally significant clusters in molecular networks. Rama Kaalia and Jagath C. Rajapakse. BMC Bioinformatics."*
 
 **Description:**
 
@@ -132,3 +132,8 @@ The following packages softwares are needed to run this algorithm successfully:
     [1] Blondel, V. D., Guillaume, J.-L., Lambiotte, R. & Lefebvre, E. Fast unfolding of communities in large networks. J. Stat. Mech. theory Exp. 2008, P10008 (2008).
     
     [2] Clauset, A., Newman, M. E. J. & Moore, C. Finding community structure in very large networks. Phys. Rev. E 70, 66111 (2004).
+    
+    
+**Citation:**
+
+If you use this code, pease cite : Rama Kaalia and Jagath C. Rajapakse. Refining modules to determine functionally significant clusters in molecular networks.  BMC Bioinformatics
