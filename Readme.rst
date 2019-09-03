@@ -4,7 +4,7 @@
 
     This module refines network modules from a protein protein interaction network. Large modules obtained by a modularity optimization algorithm like Louvain [1] or Clauset-Newman-Moore Greedy maximization algorithm [2] can be further remodularized and refined using our algorithm. 
     The algorithm works by relaxing the maximal modularity values and mining submodules of larger modules in suboptimal zone of modularity. The observed modules are shown to be biologically more relevant.
-    For details, see our publication *"Refining modules to determine functionally significant clusters in molecular networks. Rama Kaalia and Jagath C. Rajapakse. BMC Bioinformatics."*
+    For details, see our publication *"Refining modules to determine functionally significant clusters in molecular networks. Rama Kaalia and Jagath C. Rajapakse."*
 
 **Description:**
 
@@ -107,7 +107,7 @@ The following packages softwares are needed to run this algorithm successfully:
     The interactions between proteins or genes are provided in a tab separated file. These interactions can be derived on the basis of gene expression, protein similarities, co-regulation or physical interactions between proteins. The edgelist for protein-protein interactions in human used for analysis published in publication is given in human_ppi. This file contains physical and functional interactions of human proteome collected from HPRD, STRING, BioGRID and IMEx consortium databases. It contains 78705 interactions in 12022 unique human proteins.
  
  Result files :
-    Partition files used for comparing different algorithms in paper: *"Refining modules to determine functionally significant clusters in molecular networks. Rama Kaalia and Jagath C. Rajapakse. BMC Bioinformatics"*
+    Partition files used for comparing different algorithms in paper: *"Refining modules to determine functionally significant clusters in molecular networks. Rama Kaalia and Jagath C. Rajapakse."*
  
     louvain_membership: The best iteration partition (out of 25 iterations) from louvain community detection at resolution parameter 2 (out of 1 to 10).
  
@@ -136,7 +136,7 @@ The following packages softwares are needed to run this algorithm successfully:
     
 **Citation:**
 
-If you use this code, pease cite : Rama Kaalia and Jagath C. Rajapakse. Refining modules to determine functionally significant clusters in molecular networks.  BMC Bioinformatics
+If you use this code, pease cite : Rama Kaalia and Jagath C. Rajapakse. Refining modules to determine functionally significant clusters in molecular networks. 
 
 
             Copyright (C) 2019 by Rama Kaalia <ramakaalia@gmail.com>   All rights reserved.
